@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BunnyMakeup</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesc.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+
+<body>
+
+
+    <header>
+
+
+        <div class="menu container">
+            <div class="menu-left">
+                <ul class="main-menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Productos</a></li>
+                </ul>
+                <form class="search-container" id="search-form" autocomplete="off">
+                    <input type="search" id="search-bar" placeholder="Buscar producto..." list="productos-list" />
+                    <datalist id="productos-list">
+                        <option value="HUMECTANTE DE LABIOS NIVEA (CEREZA)">
+                        <option value="LABIAL VINYL MAYBELLINE">
+                        <option value="LABIAL REVLON ULTRA HD">
+                        <option value="LOCIÓN HIDRATANTE CETAPHIL">
+                        <option value="KIT RHODE SKINCARE">
+                        <option value="SÉRUM GARNIER VITAMINA C">
+                        <option value="PALETA DE SOMBRAS APPLE">
+                        <option value="PALETA HUDA BEAUTY">
+                        <option value="PALETA NUDE MAYBELLINE">
+                    </datalist>
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="menu-center">
+                <img class="logo-2" src="{{ url_for('static', filename='image/Logo1.png') }}" alt="">
+            </div>
+            <div class="menu-right">
+                <div class="top-actions">
+                    <a href="{{ url_for('ver_carrito') }}" class="carrito-btn">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                    </a>
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('logout') }}" class="auth-btn">Cerrar sesión</a>
+                    {% else %}
+                        <a href="{{ url_for('auth') }}" class="auth-btn">REGISTRO / INICIAR SESIÓN</a>
+                    {% endif %}
+                </div>
+                <div class="socials">
+                    <a href="https://www.instagram.com/bunnymakeup.store/" target="_blank" class="social">
+                        <img src="{{ url_for('static', filename='image/red1.png') }}" alt="Instagram">
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=%2B573212870562&text&type=phone_number&app_absent=0" target="_blank" class="social">
+                        <img src="{{ url_for('static', filename='image/red2.png') }}" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61576633135657" target="_blank" class="social">
+                        <img src="{{ url_for('static', filename='image/red3.png') }}" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+          
+
+
+        <div class="header-content container">
+
+
+        
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="slider">
+                <div class="slider-txt">
+                    <h1>Labial</h1>
+                    <p>
+                        Labial Vinyl de Maybelline, cuenta con una larga duración
+                        por más de 12 horas. No deja sensación de labios resecos
+                        y tiene un acabado terciopelado. Hay 5 tonos disponibles.
+                    </p>
+                    <div class="botones">
+                        <a href="https://biz.payulatam.com/L0f9f54EEDBF200" class="btn-1" target="_blank">Comprar</a>
+                        <a href="#" class="btn-1 mas-info"
+                           data-titulo="Labial Vinyl Maybelline"
+                           data-desc="Labial Vinyl de Maybelline, larga duración, acabado terciopelado, 5 tonos disponibles."
+                           data-img="{{ url_for('static', filename='image/Labial.webp') }}">Más info</a>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <img src="{{ url_for('static', filename='image/Labial.webp') }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="slider">
+                <div class="slider-txt">
+                    <h1>Paleta Huda</h1>
+                    <p>
+                        Paleta de sombras Huda Beauty, cuenta con 15 tonos para
+                        crear looks perfectos, tienen buena pigmentación y su
+                        textura es cremosa.
+                    </p>
+                    <div class="botones">
+                        <a href="https://biz.payulatam.com/L0f9f545FD6F24D" class="btn-1" target="_blank" style="margin-bottom: 15px;">Comprar</a>
+                        <a href="#" class="btn-1 mas-info"
+                           data-titulo="Paleta Huda Beauty"
+                           data-desc="Paleta de sombras Huda Beauty, 15 tonos, buena pigmentación, textura cremosa."
+                           data-img="{{ url_for('static', filename='image/sombras.webp') }}">Más info</a>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <img src="{{ url_for('static', filename='image/sombras.webp') }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="slider">
+                <div class="slider-txt">
+                    <h1>kit rhode</h1>
+                    <p>
+                        Llegó el nuevo kit de skincare de la marca Rhode que cuenta
+                        con cuatro productos, jabón facial, agua termal, protector solar
+                        y mascarilla. Por la compra de este kit, se te obsequiará un bolso
+                        para guardar tus productos.
+                    </p>
+                    <div class="botones">
+                        <a href="https://biz.payulatam.com/L0f9f540B7B7A26" class="btn-1" target="_blank" style="margin-bottom: 15px;">Comprar</a>
+                        <a href="#" class="btn-1 mas-info"
+                           data-titulo="Kit Rhode"
+                           data-desc="Kit de skincare Rhode: jabón facial, agua termal, protector solar y mascarilla. Incluye bolso de regalo."
+                           data-img="{{ url_for('static', filename='image/kitRhode.png') }}">Más info</a>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <img src="{{ url_for('static', filename='image/kitRhode.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<!-- Modal para Más info -->
+<div id="modal-info" class="modal-info-bg" style="display:none;">
+    <div class="modal-info-content">
+        <span class="close-info" id="close-info">&times;</span>
+        <h2 id="modal-info-title"></h2>
+        <div class="modal-info-img-container">
+            <img id="modal-info-img" src="" alt="Imagen producto">
+        </div>
+        <p id="modal-info-desc"></p>
+    </div>
+</div>
+
+
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        </div>
+    </main>
+
+
+
+
+
+    <!-- Modal de Inicio de Sesión -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm" onsubmit="iniciarSesion(event)">
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registroModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('registroModal')">&times;</span>
+            <h2>Registrarse</h2>
+            <form id="registroForm" onsubmit="registrarse(event)">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='carrito.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para Más info -->
+<div id="modal-info" class="modal-info-bg" style="display:none;">
+    <div class="modal-info-content">
+        <span class="close-info" id="close-info">&times;</span>
+        <h2 id="modal-info-title"></h2>
+        <div class="modal-info-img-container">
+            <img id="modal-info-img" src="" alt="Imagen producto">
+        </div>
+        <p id="modal-info-desc"></p>
+    </div>
+</div>
+
+
+</body>
+</html>
+<div class="tabs">
+    <div class="tabs-menu">
+        <a href="#labiales" class="tab-link active" id="tab-labiales">Labiales</a>
+        <a href="#skincare" class="tab-link" id="tab-skincare">Skincare</a>
+        <a href="#paletas" class="tab-link" id="tab-paletas">Paletas de sombras</a>
+    </div>
+    <div id="section-labiales" class="tab-section">
+        <div class="producto-slider">
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/labial1.jpg') }}" alt="Labial Nivea">
+                <h3>HUMECTANTE DE LABIOS NIVEA (CEREZA)</h3>
+                <p>Bálsamo hidratante con extracto de cereza y vitamina E. Suave tono rojo y aroma frutal.</p>
+                <div class="precio">$12.000</div>
+                <div class="botones">
+                    <a href="https://biz.payulatam.com/L0f9f54ACC3C78B" class="btn-1" target="_blank">Comprar</a>
+                    <a href="#" class="btn-1 agregar-carrito"
+                       data-producto="HUMECTANTE DE LABIOS NIVEA (CEREZA)"
+                       data-precio="12000"
+                       data-imagen="{{ url_for('static', filename='image/labial1.jpg') }}">
+                       Al carrito
+                    </a>
+                </div>
+            </div>
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/labial2.jpg') }}" alt="Labial Maybelline">
+                <h3>LABIAL VINYL MAYBELLINE</h3>
+                <p>Labial de larga duración, acabado terciopelado, 5 tonos disponibles.</p>
+                <div class="proximamente">PRÓXIMAMENTE</div>
+            </div>
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/labial3.jpg') }}" alt="Labial Revlon">
+                <h3>LABIAL REVLON ULTRA HD</h3>
+                <p>Color intenso, textura cremosa, hidratación y brillo natural.</p>
+                <div class="proximamente">PRÓXIMAMENTE</div>
+            </div>
+        </div>
+    </div>
+    <div id="section-skincare" class="tab-section" style="display:none;">
+        <div class="producto-slider">
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/Skincare1.jpg') }}" alt="Cetaphil">
+                <h3>LOCIÓN HIDRATANTE CETAPHIL</h3>
+                <p>Ligera, no grasa, hidrata profundamente todo tipo de piel.</p>
+                <div class="precio">$120.000</div>
+                <div class="botones">
+                    <a href="https://biz.payulatam.com/L0f9f5462D43E0A" class="btn-1" target="_blank">Comprar</a>
+                    <a href="#" class="btn-1 agregar-carrito">Al carrito</a>
+                </div>
+            </div>
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/Skincare2.jpg') }}" alt="Kit Rhode">
+                <h3>KIT RHODE SKINCARE</h3>
+                <p>Incluye jabón facial, agua termal, protector solar y mascarilla. ¡Incluye bolso de regalo!</p>
+                <div class="proximamente">PRÓXIMAMENTE</div>
+            </div>
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/Skincare3.jpg') }}" alt="Serum Garnier">
+                <h3>SÉRUM GARNIER VITAMINA C</h3>
+                <p>Ilumina, reduce manchas y unifica el tono de la piel.</p>
+                <div class="proximamente">PRÓXIMAMENTE</div>
+            </div>
+        </div>
+    </div>
+    <div id="section-paletas" class="tab-section" style="display:none;">
+        <div class="producto-slider">
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/Paleta1.jpg') }}" alt="Paleta Apple">
+                <h3>PALETA DE SOMBRAS APPLE</h3>
+                <p>Colores vibrantes, acabados mate y brillantes, alta pigmentación.</p>
+                <div class="precio">$40.000</div>
+                <div class="botones">
+                    <a href="https://biz.payulatam.com/L0f9f544282371D" class="btn-1" target="_blank">Comprar</a>
+                    <a href="#" class="btn-1 agregar-carrito">Al carrito</a>
+                </div>
+            </div>
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/Paleta2.jpg') }}" alt="Paleta Huda">
+                <h3>PALETA HUDA BEAUTY</h3>
+                <p>15 tonos, buena pigmentación, textura cremosa.</p>
+                <div class="proximamente">PRÓXIMAMENTE</div>
+            </div>
+            <div class="producto-card">
+                <img src="{{ url_for('static', filename='image/Paleta3.jpg') }}" alt="Paleta Nude">
+                <h3>PALETA NUDE MAYBELLINE</h3>
+                <p>Tonos neutros, ideal para looks naturales y de noche.</p>
+                <div class="proximamente">PRÓXIMAMENTE</div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="tab">
+                
+            </div>
+        </div>
+    </main>
+    
+
+
+
+
+
+
+
+    <!-- Modal de Inicio de Sesión -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm" onsubmit="iniciarSesion(event)">
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registroModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('registroModal')">&times;</span>
+            <h2>Registrarse</h2>
+            <form id="registroForm" onsubmit="registrarse(event)">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        function searchProduct(event) {
+            if (event.key === 'Enter') {
+                let searchQuery = document.getElementById('search-bar').value.toLowerCase();
+                if (searchQuery.includes('paleta de sombras apple')) {
+                    window.location.href = "{{ url_for('obtener_productos') }}";
+                } else {
+                    alert("Producto no encontrado. Por favor, intenta con otra búsqueda.");
+                }
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='carrito.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para Más info -->
+<div id="modal-info" class="modal-info-bg" style="display:none;">
+    <div class="modal-info-content">
+        <span class="close-info" id="close-info">&times;</span>
+        <h2 id="modal-info-title"></h2>
+        <div class="modal-info-img-container">
+            <img id="modal-info-img" src="" alt="Imagen producto">
+        </div>
+        <p id="modal-info-desc"></p>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+    <section class="info container">
+
+
+        <div class="info-img">
+            <img src="{{ url_for('static', filename='image/info.avif') }}" alt="">
+        </div>
+
+
+        <div class="info-txt">
+            <h2>Información</h2>
+            <p>
+               En BunnyMakeup encontrarás productos de belleza de alta calidad
+               y asequibilidad, ideal para quienes buscan destacar su estilo sin
+               comprometer su presupuesto. Con productos cuidadosamente seleccionados
+               y formulaciones seguras, BunnyMakeup ofrece una experiencia de 
+               belleza accesible y confiable para todos. 
+            </p>
+            <a href="#" class="btn-2">Mas información</a>
+        </div>
+
+
+    </section>
+
+
+    <section class="reviews-section container">
+        <div class="reviews-content">
+            <h2>¡Déjanos tu reseña!</h2>
+            <form id="review-form">
+                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                <textarea name="comentario" placeholder="Escribe tu reseña aquí..." required></textarea>
+                <div class="review-rating">
+                    <label>Calificación:</label>
+                    <select name="calificacion" required>
+                        <option value="">Selecciona</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="1">⭐</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-1">Enviar reseña</button>
+            </form>
+            <div id="review-message"></div>
+        </div>
+    </section>
+    <section class="horario">
+        <div class="horario-info container">
+            <h2>Horario</h2>
+            <div class="horario-txt">
+                     <div class="txt">
+                        <h4>Dirección</h4>
+                        <p>
+                            Cra. 11 #82-71, Bogotá
+                        </p>
+                        <p>
+                            Cl. 38A Sur #34d-51, Bogotá
+                        </p>
+                     </div>
+                     <div class="txt">
+                        <h4>Horario</h4>
+                        <p>
+                            Lunes a Viernes : 9 am - 7 pm
+                        </p>
+                        <p>
+                            Sabado y Domingo : 11 am - 6 pm
+                        </p>
+                     </div>
+                     <div class="txt">
+                        <h4>Telefono</h4>
+                        <p>
+                            4619287
+                        </p>
+                        <p>
+                            3125937804
+                        </p>
+                     </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer container">
+        <img class="logo-2" src="{{ url_for('static', filename='image/Logo1.png') }}" alt="">
+        <div class="links">
+            <h4>Ayuda</h4>
+            <ul>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Nuestras politicas</a></li>
+                <li><a href="#">¿Olvidaste tu contraseña?</a></li>
+                <li><a href="#">Carrito</a></li>
+                <li><a href="#">Estado de mi pedido</a></li>
+            </ul>
+        </div>
+        <div class="links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Politicas Privacidad</a></li>
+                <li><a href="#">Politica de reembolso</a></li>
+                <li><a href="#">Politica de envíos</a></li>
+                <li><a href="#">Terminos de servicio</a></li>
+            </ul>
+        </div>
+        <div class="links">
+            <h4>Menú</h4>
+            <ul>
+                <li><a href="#">Tienda</a></li>
+                <li><a href="#">Marcas</a></li>
+                <li><a href="#">Comunidad</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para Más info -->
+<div id="modal-info" class="modal-info-bg" style="display:none;">
+    <div class="modal-info-content">
+        <span class="close-info" id="close-info">&times;</span>
+        <h2 id="modal-info-title"></h2>
+        <div class="modal-info-img-container">
+            <img id="modal-info-img" src="" alt="Imagen producto">
+        </div>
+        <p id="modal-info-desc"></p>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - BunnyMakeup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesc.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="menu container">
+            <a href="{{ url_for('index') }}">
+                <img class="logo-1" src="{{ url_for('static', filename='image/Logo1.png') }}" alt="Logo">
+            </a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="{{ url_for('static', filename='image/menu.png') }}" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <div class="menu-1">
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#carrito">Carrito</a></li>
+                    </ul>
+                </div>
+                <div class="menu-2">
+                    <div class="socials">
+                        <a href="https://www.instagram.com/bunnymakeup.store/" target="_blank">
+                            <div class="social">
+                                <img src="{{ url_for('static', filename='image/red1.png') }}" alt="Instagram">
+                            </div>
+                        </a>
+                        <a href="https://api.whatsapp.com/send/?phone=%2B573212870562&text&type=phone_number&app_absent=0" target="_blank">
+                            <div class="social">
+                                <img src="{{ url_for('static', filename='image/red2.png') }}" alt="Facebook">
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61576633135657" target="_blank">
+                            <div class="social">
+                                <img src="{{ url_for('static', filename='image/red3.png') }}" alt="WhatsApp">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="carrito-container">
+            <h1 class="carrito-titulo">Carrito de Compras</h1>
+            <div id="carrito-contenido">
+                <!-- Contenido del carrito -->
+            </div>
+            <div class="resumen-compra">
+                <h2>Resumen de la Compra</h2>
+                <p>Total: <span id="total">$0.00</span></p>
+                <button class="btn-pagar">Proceder al Pago</button>
+            </div>
+            <button id="vaciar-carrito">Vaciar Carrito</button>
+            <a href="{{ url_for('index') }}" id="volver-pagina-principal">Volver a la tienda</a>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
